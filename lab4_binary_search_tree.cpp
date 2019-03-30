@@ -147,18 +147,9 @@ bool BinarySearchTree::insert( BinarySearchTree::TaskItem val ) {
 // PURPOSE: Removes the node with the value val from the tree
 // returns true if successful; returns false otherwise
 bool BinarySearchTree::remove( BinarySearchTree::TaskItem val ) {
-    /*TaskItem* remove = new TaskItem(val);
-    TaskItem* temp = root;
-    
-    if (!exists(val))
+    if (root == NULL)
         return false;
     
-
-    return true;*/
-    
-    if (root == NULL) {
-        return false;
-    }
     TaskItem *del = new TaskItem(val);
     TaskItem *tester = root;
     TaskItem *parent = root;
@@ -190,9 +181,6 @@ bool BinarySearchTree::remove( BinarySearchTree::TaskItem val ) {
             parent->right = NULL;
         }
         delete tester;
-        //tester = NULL;
-        //delete del;
-        //delete parent;
         return true;
     }
     
@@ -209,8 +197,6 @@ bool BinarySearchTree::remove( BinarySearchTree::TaskItem val ) {
             parent->right = tester->left;
         }
         delete tester;
-        //delete del;
-        //delete parent;
         size--;
         return true;
     }
@@ -223,8 +209,6 @@ bool BinarySearchTree::remove( BinarySearchTree::TaskItem val ) {
             parent->right = tester->right;
         }
         delete tester;
-        //delete del;
-        //delete parent;
         size--;
         return true;
     }
@@ -255,5 +239,5 @@ bool BinarySearchTree::remove( BinarySearchTree::TaskItem val ) {
         size--;
         return true;
     }
-    return true;
+    return false;
 }
